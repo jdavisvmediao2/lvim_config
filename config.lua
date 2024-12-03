@@ -7,6 +7,45 @@ vim.opt.relativenumber = true -- relative line numbers
 
 
 require('molten.keybinds')
+
+lvim.plugins = {
+  {
+    "benlubas/molten-nvim",
+    -- requirements:
+    -- image.nvim
+    -- pynvim
+    -- jupyter_client
+    -- optional requirements:
+    -- pnglatex
+    -- nbformat
+    version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+    build = ':UpdateRemotePlugins',
+  },
+  {
+    "quarto-dev/quarto-nvim", --tools for working with quarto manustripts (to view jp. ntbk)
+    dependencies = {
+      "jmbuhr/otter.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+  {
+    "GCBallesteros/jupytext.nvim", --for rndering jp ntb files as markdown, requires pip install jupytext
+    -- requirements:
+    -- jupytext
+    config = true,
+    style = "markdown",
+    output_extention = "md",
+    force_ft = "markdown",
+    custom_language_formatting = {
+      python = {
+        extention = "ipynb",
+        output_extention = "md",
+        style = "markdown",
+        force_ft = "markdown"
+      }
+    }
+  },
+}
 --lvim.plugins = {
 --  {--jupynium connects to jupyter notebook runtime
 --    "kiyoon/jupynium.nvim",
@@ -149,42 +188,3 @@ require('molten.keybinds')
 --}
 -- Please share your favourite settings on other colour schemes, so I can add defaults.
 -- Currently, tokyonight is supported.
-
-lvim.plugins = {
-  {
-    "benlubas/molten-nvim",
-    -- requirements:
-    -- image.nvim
-    -- pynvim
-    -- jupyter_client
-    -- optional requirements:
-    -- pnglatex
-    -- nbformat
-    version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
-    build = ':UpdateRemotePlugins',
-  },
-  {
-    "quarto-dev/quarto-nvim", --tools for working with quarto manustripts (to view jp. ntbk)
-    dependencies = {
-      "jmbuhr/otter.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
-  {
-    "GCBallesteros/jupytext.nvim", --for rndering jp ntb files as markdown, requires pip install jupytext
-    -- requirements:
-    -- jupytext
-    config = true,
-    style = "markdown",
-    output_extention = "md",
-    force_ft = "markdown",
-    custom_language_formatting = {
-      python = {
-        extention = "ipynb",
-        output_extention = "md",
-        style = "markdown",
-        force_ft = "markdown"
-      }
-    }
-  },
-}
