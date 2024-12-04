@@ -3,10 +3,12 @@
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
+-- requires Lazygit, can be gotten from conda or package manager
 vim.opt.relativenumber = true -- relative line numbers
 
 
 require('molten.keybinds')
+require('molten.moltenconfig')
 
 lvim.plugins = {
   {
@@ -32,18 +34,16 @@ lvim.plugins = {
     "GCBallesteros/jupytext.nvim", --for rndering jp ntb files as markdown, requires pip install jupytext
     -- requirements:
     -- jupytext
-    config = true,
-    style = "markdown",
-    output_extention = "md",
-    force_ft = "markdown",
-    custom_language_formatting = {
-      python = {
-        extention = "ipynb",
-        output_extention = "md",
-        style = "markdown",
-        force_ft = "markdown"
-      }
-    }
+     -- config = true
+   config = function()
+     require("jupytext").setup({
+           python = {
+             extention = "qmd",
+             style = "quarto",
+             force_ft = "quarto"
+           }
+     })
+   end,
   },
 }
 --lvim.plugins = {
