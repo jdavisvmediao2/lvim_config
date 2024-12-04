@@ -8,7 +8,7 @@ vim.opt.relativenumber = true -- relative line numbers
 
 
 require('molten.keybinds')
-require('molten.moltenconfig')
+require('molten.mconfig')
 
 lvim.plugins = {
   {
@@ -34,16 +34,23 @@ lvim.plugins = {
     "GCBallesteros/jupytext.nvim", --for rndering jp ntb files as markdown, requires pip install jupytext
     -- requirements:
     -- jupytext
-     -- config = true
-   config = function()
-     require("jupytext").setup({
-           python = {
-             extention = "qmd",
-             style = "quarto",
-             force_ft = "quarto"
-           }
-     })
-   end,
+    config = true,
+    -- config = function ()
+    --   require("jupytext").setup({
+    --   python = {
+    --     extention = "md",
+    --     style = "markdown",
+    --     force_ft = "markdown"
+    --     }
+    --   })
+    -- end,
+  },
+  {
+    "3rd/image.nvim", --show images in jp nvim
+    -- requirements:
+    -- imagemagick
+    -- kitty
+    config = true,
   },
 }
 --lvim.plugins = {
