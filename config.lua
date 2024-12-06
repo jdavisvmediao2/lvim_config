@@ -6,7 +6,7 @@
 -- requires Lazygit, can be gotten from conda or package manager
 vim.opt.relativenumber = true -- relative line numbers
 
-
+require('keybinds')
 require('molten.keybinds')
 require('molten.config')
 
@@ -59,11 +59,11 @@ lvim.plugins = {
     -- kitty
     config = true,
   },
-  -- {
-  --   "rmagatti/goto-preview",-- floating windows for goto
-  --   event = "BufEnter",
-  --   config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
-  -- },
+  {
+    "rmagatti/goto-preview",-- floating windows for goto
+    event = "BufEnter",
+    config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
+  },
 }
 
 
