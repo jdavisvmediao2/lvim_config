@@ -25,6 +25,11 @@ lvim.plugins = {
   },
   {
     "quarto-dev/quarto-nvim", --tools for working with quarto manustripts (to view jp. ntbk)
+    config = function ()
+      require("quarto").setup({
+       ft = {"quarto", "markdown"},
+    })
+    end,
     dependencies = {
       "jmbuhr/otter.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -57,7 +62,15 @@ lvim.plugins = {
     -- requirements:
     -- imagemagick
     -- kitty
-    config = true,
+    -- config = true,
+    build = false,
+    opts = {},
+    config = function()
+      require("image").setup({
+        processor = "magick_cli",
+      })
+    end,
+
   },
   {
     "rmagatti/goto-preview",-- floating windows for goto
@@ -72,3 +85,9 @@ lvim.plugins = {
 --}
 -- Please share your favourite settings on other colour schemes, so I can add defaults.
 -- Currently, tokyonight is supported.
+--
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers,
+--                 { "ruff" })
+-- lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
+--   return server ~= "python-lsp-server"
+-- end, lvim.lsp.automatic_configuration.skipped_servers)
