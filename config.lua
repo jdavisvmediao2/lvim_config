@@ -77,6 +77,13 @@ lvim.plugins = {
     event = "BufEnter",
     config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
   },
+  {
+    'mfussenegger/nvim-dap-python', -- python config for dap
+    -- https://codeberg.org/mfussenegger/nvim-dap-python
+    -- requirements:
+    -- debugpy
+    -- require("dap-python").setup("/Users/davisj7/.config/lvim/debugpy/bin/python -m debugpy --version")
+  },
 }
 
 
