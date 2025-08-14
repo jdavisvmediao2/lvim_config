@@ -83,7 +83,38 @@ lvim.plugins = {
     -- requirements:
     -- debugpy
     -- require("dap-python").setup("/Users/davisj7/.config/lvim/debugpy/bin/python -m debugpy --version")
+    require("dap-python").setup("/Users/davisj7/.config/lvim/debugpy/bin/python")
+    -- require("dap-python").resolve_python = function()
+    -- return "~/"
+    -- end
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim', -- markdown renderer
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    -- config = function()
+    --     vim.api.nvim_set_hl(0, 'RenderMarkdownH2Bg', { bg = 'red' })
+    --     require('render-markdown').setup({})
+    -- end,
+    ---@module 'render-markdown'
+    -- -@type render.md.UserConfig
+    opts = {
+      -- 'RenderMarkdownH2Bg'=='#C3214B'
+
+      heading=
+        {
+          backgrounds={
+            'RenderMarkdownH1Bg',
+            'RenderMarkdownH6Bg',
+            'RenderMarkdownH3Bg',
+            'RenderMarkdownH4Bg',
+            'RenderMarkdownH5Bg',
+            'RenderMarkdownH2Bg',
+          }
+        }
+    },
+}
 }
 
 
